@@ -329,7 +329,8 @@ static const key_code input_key_modifiers[] = {
 	KEYC_CTRL,
 	KEYC_SHIFT|KEYC_CTRL,
 	KEYC_META|KEYC_IMPLIED_META|KEYC_CTRL,
-	KEYC_SHIFT|KEYC_META|KEYC_IMPLIED_META|KEYC_CTRL
+	KEYC_SHIFT|KEYC_META|KEYC_IMPLIED_META|KEYC_CTRL,
+	KEYC_SUPER,
 };
 
 /* Input key comparison function. */
@@ -456,6 +457,9 @@ input_key_extended(struct bufferevent *bev, key_code key)
 		break;
 	case KEYC_SHIFT|KEYC_META|KEYC_CTRL:
 		modifier = '8';
+		break;
+	case KEYC_SUPER:
+		modifier = '9';
 		break;
 	default:
 		return (-1);

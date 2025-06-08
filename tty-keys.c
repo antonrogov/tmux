@@ -266,7 +266,7 @@ static const key_code tty_default_xterm_modifiers[] = {
 	KEYC_SHIFT|KEYC_CTRL,
 	KEYC_META|KEYC_IMPLIED_META|KEYC_CTRL,
 	KEYC_SHIFT|KEYC_META|KEYC_IMPLIED_META|KEYC_CTRL,
-	KEYC_META|KEYC_IMPLIED_META
+	KEYC_SUPER,
 };
 
 /*
@@ -1100,7 +1100,7 @@ tty_keys_extended_key(struct tty *tty, const char *buf, size_t len,
 		if (modifiers & 4)
 			nkey |= KEYC_CTRL;
 		if (modifiers & 8)
-			nkey |= (KEYC_META|KEYC_IMPLIED_META); /* Meta */
+			nkey |= KEYC_SUPER; /* Super */
 	}
 
 	/* Convert S-Tab into Backtab. */
